@@ -1,0 +1,9 @@
+- hosts: dev
+  user: ec2-user
+  become: true
+  gather_facts: no
+  tasks:
+  - name: install nginx
+    yum: pkg=nginx state=installed
+  - name: start nginx
+    service: name=nginx state=started
